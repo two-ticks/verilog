@@ -1,8 +1,6 @@
 # verilog
 ```verilog
-module flipflop (
-    D, CLK, Q
-);
+module flipflop (D, CLK, Q);
     input D, CLK;
     output reg Q;
 
