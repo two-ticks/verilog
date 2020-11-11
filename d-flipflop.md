@@ -1,4 +1,4 @@
-# D flipflop code
+# d-flipflop.v
 ```verilog
 module flipflop (D, CLK, Q);
     input D, CLK;
@@ -10,7 +10,7 @@ module flipflop (D, CLK, Q);
     end
 endmodule
 ```
-# testbench
+# d-flipflop-tb.v
 
 ```verilog
 `timescale 1ns/1ns
@@ -40,4 +40,4 @@ initial
 
 endmodule
 ```
-
+`iverilog -o 
