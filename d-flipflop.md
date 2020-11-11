@@ -42,9 +42,9 @@ endmodule
 ```
 # terminal
 
-> `iverilog -o d-flipflop-tb.vvp d-flipflop-tb.v`
+ - `iverilog -o d-flipflop-tb.vvp d-flipflop-tb.v`
 
-> `vvp d-flipflop-tb.vvp`
+ - `vvp d-flipflop-tb.vvp`
 
-> `gtkwave d-flipflop.vcd`
+ - `gtkwave d-flipflop.vcd`
 
