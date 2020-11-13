@@ -1,4 +1,5 @@
-https://circuitverse.org/simulator/embed/half-adder-instantiation
+[link to Circuit!](https://circuitverse.org/simulator/embed/half-adder-instantiation)
+
 # half-adder-instantiation.v
 ```verilog
 module halfadder(a,b,sum,carry);
