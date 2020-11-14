@@ -1,11 +1,11 @@
  ## **_`microprocessor, the heart of computer`_**
 
-# Verilog Workflow
+# verilog-workflow
 
 We can use any text-editor and any extension for setting up our verilog workflow. I am using Visual Studio Code with a verilog extension. 
 We can use Model Simulator also. 
 
-# Reference
+# reference
 
 - icarus   http://bleyer.org/icarus/
 - vscode   https://code.visualstudio.com/download
