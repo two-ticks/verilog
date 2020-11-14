@@ -15,7 +15,7 @@ We can use Model Simulator also.
    └── half-adder-tb.v
 ```
 
-# files
+## code
 
 > `half-adder.v` is main code 
 
