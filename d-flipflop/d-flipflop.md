@@ -1,4 +1,4 @@
-[link to Circuit](https://circuitverse.org/simulator/embed/d-flipflop-d53f3ab7-a913-4804-94f8-4382755990fa)
+[link to circuit](https://circuitverse.org/simulator/embed/d-flipflop-d53f3ab7-a913-4804-94f8-4382755990fa)
 
 <img src="main.png" width="350">
 
