@@ -5,6 +5,10 @@
 We can use any text-editor and any extension for setting up our verilog workflow. I am using Visual Studio Code with a verilog extension. 
 We can use Model Simulator also. 
 
+## terminal
+
+<img src="terminal.png" height="350">
+
 # reference
 
 - icarus   http://bleyer.org/icarus/
