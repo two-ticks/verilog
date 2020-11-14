@@ -1,4 +1,6 @@
-[link to Circuit!](https://circuitverse.org/simulator/embed/half-adder-instantiation)
+[link to circuit](https://circuitverse.org/simulator/embed/half-adder-instantiation)
+
+<img src="main.png" width="450">
 
 # half-adder-instantiation.v
 ```verilog
