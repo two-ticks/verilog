@@ -14,6 +14,9 @@ We can use Model Simulator also.
    ├── half-adder.v
    └── half-adder-tb.v
 ```
+
+# files
+
 > `half-adder.v` is main code 
 
 ```verilog
