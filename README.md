@@ -7,7 +7,7 @@ We can use Model Simulator also.
 
 ## terminal
 
-<img src="terminal.png" height="350">
+<img src="terminal.png">
 
 # reference
 
