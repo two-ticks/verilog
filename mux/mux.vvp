@@ -1,0 +1,55 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 9;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_00000000010258e0 .scope module, "testbench" "testbench" 2 4;
+ .timescale -9 -9;
+v0000000001025c00_0 .var "in1", 0 0;
+v0000000001025ca0_0 .var "in2", 0 0;
+v0000000001023090_0 .net "out", 0 0, L_00000000010231d0;  1 drivers
+v0000000001023130_0 .var "select", 0 0;
+S_0000000001025a70 .scope module, "UUT" "mux2_1" 2 9, 3 1 0, S_00000000010258e0;
+ .timescale -9 -9;
+    .port_info 0 /INPUT 1 "in1";
+    .port_info 1 /INPUT 1 "in2";
+    .port_info 2 /INPUT 1 "select";
+    .port_info 3 /OUTPUT 1 "out";
+v0000000001168970_0 .net "in1", 0 0, v0000000001025c00_0;  1 drivers
+v0000000000ff3140_0 .net "in2", 0 0, v0000000001025ca0_0;  1 drivers
+v000000000116bc30_0 .net "out", 0 0, L_00000000010231d0;  alias, 1 drivers
+v000000000116bcd0_0 .net "select", 0 0, v0000000001023130_0;  1 drivers
+L_00000000010231d0 .functor MUXZ 1, v0000000001025c00_0, v0000000001025ca0_0, v0000000001023130_0, C4<>;
+    .scope S_00000000010258e0;
+T_0 ;
+    %vpi_call 2 13 "$dumpfile", "mux.vcd" {0 0 0};
+    %vpi_call 2 14 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000000010258e0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001025c00_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001025ca0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v0000000001023130_0, 0, 1;
+    %delay 45, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001025c00_0, 0, 1;
+    %delay 45, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001023130_0, 0, 1;
+    %delay 45, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v0000000001025ca0_0, 0, 1;
+    %delay 45, 0;
+    %vpi_call 2 19 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux-tb.v";
+    "./mux.v";
