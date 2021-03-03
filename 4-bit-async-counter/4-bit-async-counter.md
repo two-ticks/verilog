@@ -2,7 +2,7 @@
 
 <img src="main.gif" width="450">
 
-# d-flipflop.v
+# 4-bit-async-counter.v
 
 ```verilog
 module flipflop (D, CLK, Q);
