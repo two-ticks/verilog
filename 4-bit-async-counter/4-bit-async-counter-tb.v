@@ -3,23 +3,25 @@
 
 module testbench;
 
-reg D=0, CLK = 0; 
-wire Q;
+reg j=1, k=1,clock=0,reset=1,clk=0; 
+wire q,qb;
 
-flipflop UUT(D, CLK, Q);
+counter UUT(j,k,clock,reset,q,qb);
 
 always 
  begin
-    CLK=~CLK;
+    clk=~clk;
     #10;
  end
 initial
  begin
     $dumpfile("4-bit-async-counte.vcd");
     $dumpvars(0, testbench);
-    D=0; #45;
-    D=1; #45;
-    D=0; #45;
+    clock=~clock; #10;
+    clock=~clock; #10;
+    clock=~clock; #10;
+    clock=~clock; #10;
+
     $finish;
  end    
 
