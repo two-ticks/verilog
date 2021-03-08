@@ -9,20 +9,20 @@
   
   ```bash
 ├── modules
-   ├── ALU.v
-   └── bcd2disp.v
-   └── CPU_tb.v
-   └── CPU.v
-   └── IC.v
-   └── PC.v
-   └── RAM_template.v
-   └── RAM.v
-   └── register4.v
-   └── register8.v
-   └── triBuff4.v
-   └── tristateBuff.v
-   └── RAM.v
-   └── register4.v
+│   ├── ALU.v
+│   └── bcd2disp.v
+│   └── CPU_tb.v
+│   └── CPU.v
+│   └── IC.v
+│   └── PC.v
+│   └── RAM_template.v
+│   └── RAM.v
+│   └── register4.v
+│   └── register8.v
+│   └── triBuff4.v
+│   └── tristateBuff.v
+│   └── RAM.v
+│   └── register4.v
 
 ```
 
