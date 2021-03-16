@@ -1,53 +1,39 @@
-# VLSI
-
-<details>
-<summary>
-<i>Like this? </i>
-<a href="http://www.ironspider.ca/format_text/fontstyles.htm">
-Useful Source</a>
-</summary>
-<p>It's because the details block is html5. If you want to modify it your best bet is using html5. </p>
-</details>
+# North Star :star:
 
 # To Do
 
-    - [x]  basic gates
-    - [ ]  4-bit ripple counter
-    - [ ]  T-flip flop
+- [x]  basic gates
+- [ ]  4-bit ripple counter
+- [ ]  T-flip flop
 
-<details>
-<summary>resources</summary>
+# Resources
 
+<a href="https://hdlbits.01xz.net/wiki/Main_Page"></a>
 
+[https://www.doulos.com/knowhow/verilog/](https://www.doulos.com/knowhow/verilog/)
 
-    <a href="https://hdlbits.01xz.net/wiki/Main_Page"></a>
+[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/)
 
-    [https://www.doulos.com/knowhow/verilog/](https://www.doulos.com/knowhow/verilog/)
+[https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html)
 
-    [https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/)
+https://www.quora.com/What-are-the-sources-for-the-Verilog-HDL-Code-Learn
 
-    [https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html)
+http://asic.co.in/Index_files/verilogexamples.htm
 
-    https://www.quora.com/What-are-the-sources-for-the-Verilog-HDL-Code-Learn
+http://www.testbench.in/
 
-    http://asic.co.in/Index_files/verilogexamples.htm
+https://www.whoishostingthis.com/resources/verilog/#online-resources
 
-    http://www.testbench.in/
+http://www.asic-world.com/verilog/veritut.html
 
-    https://www.whoishostingthis.com/resources/verilog/#online-resources
+https://www.geeksforgeeks.org/multiplexer-design-using-verilog-hdl/
 
-    http://www.asic-world.com/verilog/veritut.html
+https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
 
-    https://www.geeksforgeeks.org/multiplexer-design-using-verilog-hdl/
+https://github.com/ashishrana160796/verilog-starter-tutorials
 
-    https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
+https://github.com/sayden/verilog-tutorials
 
-    https://github.com/ashishrana160796/verilog-starter-tutorials
-
-    https://github.com/sayden/verilog-tutorials
-
-
-</details>
 non-blocking assignment (`<=`)
 
 blocking assignment (`=`)
@@ -66,7 +52,7 @@ blocking assignment (`=`)
 
     wave>run 
 
-    ![Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled.png](Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled.png)
+    ![run modelsim](scribble-pad/modelsim_run.png)
 
     without testbench → wave>right click on signal to add clock 
 
@@ -158,13 +144,11 @@ always @(a or b or sel)
     	end
     ```
 
-    ![Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%201.png](Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%201.png)
-
-    ![Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%202.png](Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%202.png)
+    ![mux](scribble-pad/mux.png)
 
 - encoder and decoders
 
-    ![Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%203.png](Verilog%20b111bdcd60144a2a824d22ebef0a30ad/Untitled%203.png)
+    ![encoder](scribble-pad/encoder.png)
 
     An encoder is a combinational circuit that converts binary information in the form of a $2^N$ input lines into N output lines, which represent N bit code for the input. For simple encoders, it is assumed that only one input line is active at a time.
 
