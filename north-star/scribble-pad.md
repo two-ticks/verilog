@@ -8,55 +8,45 @@
 
 # Resources
 
-<a href="https://hdlbits.01xz.net/wiki/Main_Page"></a>
+   <a href="https://hdlbits.01xz.net/wiki/Main_Page"></a>
 
-[https://www.doulos.com/knowhow/verilog/](https://www.doulos.com/knowhow/verilog/)
+   [https://www.doulos.com/knowhow/verilog/](https://www.doulos.com/knowhow/verilog/)
 
-[https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/)
+   [https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/](https://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-884-complex-digital-systems-spring-2005/lecture-notes/)
 
-[https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html)
+   [https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html](https://people.ece.cornell.edu/land/courses/ece5760/Verilog/Verilog_index.html)
 
-https://www.quora.com/What-are-the-sources-for-the-Verilog-HDL-Code-Learn
+   https://www.quora.com/What-are-the-sources-for-the-Verilog-HDL-Code-Learn
 
-http://asic.co.in/Index_files/verilogexamples.htm
+   http://asic.co.in/Index_files/verilogexamples.htm
 
-http://www.testbench.in/
+   http://www.testbench.in/
 
-https://www.whoishostingthis.com/resources/verilog/#online-resources
+   https://www.whoishostingthis.com/resources/verilog/#online-resources
 
-http://www.asic-world.com/verilog/veritut.html
+   http://www.asic-world.com/verilog/veritut.html
 
-https://www.geeksforgeeks.org/multiplexer-design-using-verilog-hdl/
+   https://www.geeksforgeeks.org/multiplexer-design-using-verilog-hdl/
 
-https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
+   https://www.geeksforgeeks.org/digital-electronics-logic-design-tutorials/
 
-https://github.com/ashishrana160796/verilog-starter-tutorials
+   https://github.com/ashishrana160796/verilog-starter-tutorials
 
-https://github.com/sayden/verilog-tutorials
+   https://github.com/sayden/verilog-tutorials
 
-non-blocking assignment (`<=`)
+# ModelSim
 
-blocking assignment (`=`)
+compile 
 
-- naming conventions
+simulate>work>filename_tb.v → sim>add wave
 
-    all in small except `CONSTANTS`
+wave>run 
 
-- resources
+![run modelsim](scribble-pad/modelsim_run.png)
 
-- modelsim
+without testbench → wave>right click on signal to add clock 
 
-    compile 
-
-    simulate>work>filename_tb.v → sim>add wave
-
-    wave>run 
-
-    ![run modelsim](scribble-pad/modelsim_run.png)
-
-    without testbench → wave>right click on signal to add clock 
-
-- ***gtkwave***
+# GTKwave
 
     ```bash
     iverilog -o d-flipflop-tb.vvp d-flipflop-tb.v
@@ -64,18 +54,29 @@ blocking assignment (`=`)
     gtkwave d-flipflop.vcd
     ```
 
-```verilog
-reg out;
-always @(a or b or sel)
- if (sel)
- out = a;
- else
- out = b;
-```
+# always @ ()
 
+ ```verilog
+    reg out;
+    always @(a or b or sel)
+    if (sel)
+    out = a;
+    else
+    out = b;
+    ```
 **The  `always` keyword forms a never-ending loop. When the `@()` operator is added, one iteration of the loop happens whenever the named values change.**
 
-- `assign`
+# Basics 
+
+- non-blocking assignment (`<=`)
+
+- blocking assignment (`=`)
+
+- naming conventions
+
+    all in small except `CONSTANTS`
+
+## assign
 
     continuous statement 
 
@@ -85,7 +86,7 @@ always @(a or b or sel)
 
     ***LHS can't be 'reg'***
 
-- **Levels of abstraction**
+## **Levels of abstraction**
     - Behavioral Level( Design of Algorithm ) : Algorithmic and performance oriented programs are written with it.
     - Dataflow Level( Design of Equation ) : "assign" keyword is used for dataflow modelling. ex : assign c = a+b;
     - Gate Level( Interconnection with Logic Gates ) : Circuits will be defined by logic gates. ex : and(output, input) etc.
@@ -104,7 +105,7 @@ always @(a or b or sel)
 
     Integers, Arrays, Memories, Parameters, Strings are few other data types.
 
-- instantiation
+# instantiation
 
     Module Instantiation : Process of connecting one module to another. Its subparts are Positional Mapping and Nomenclature Based Mapping.
 
@@ -128,7 +129,7 @@ always @(a or b or sel)
 
 `$display` vs `$monitor`: $dispay is used to display immediate value of variables. It gets executed in an active region. $monitor gets executed whenever the value of the given variable changes in it. It gets executed in the postponed region. Monitor is required only once to be written.
 
-- mux
+# mux
 
     ```verilog
     always @ (sel or din_0 or din_1)
@@ -146,7 +147,7 @@ always @(a or b or sel)
 
     ![mux](scribble-pad/mux.png)
 
-- encoder and decoders
+# encoder and decoders
 
     ![encoder](scribble-pad/encoder.png)
 
