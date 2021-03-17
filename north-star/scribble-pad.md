@@ -53,8 +53,20 @@ iverilog -o d-flipflop-tb.vvp d-flipflop-tb.v
 vvp d-flipflop-tb.vvp
 gtkwave d-flipflop.vcd
 ```
+# Xilinx 
 
-# always @ ()
+
+
+
+# Some Basics of Verilog
+
+- non-blocking assignment (`<=`)
+
+- blocking assignment (`=`)
+
+- naming conventions : all in small except `CONSTANTS`
+
+## always @ ()
 
 ```verilog
 reg out;
@@ -66,14 +78,6 @@ out = b;
 ```
 
 **The  `always` keyword forms a never-ending loop. When the `@()` operator is added, one iteration of the loop happens whenever the named values change.**
-
-# Basics
-
-- non-blocking assignment (`<=`)
-
-- blocking assignment (`=`)
-
-- naming conventions : all in small except `CONSTANTS`
 
 ## assign
 
@@ -94,7 +98,7 @@ RHS can be function call or register
 
 -
 
-# Data Types
+## Data Types
 
 Two primary data-types are as follows :
 
@@ -107,7 +111,7 @@ Other data-types are :
 - Values : 0(Logical zero/false), 1(Logical one/true), X(Unknown Logic Value), Z(High Impedance).
 - Integers, Arrays, Memories, Parameters, Strings are few other data types.
 
-# Instantiation
+## Instantiation
 
 Module Instantiation : Process of connecting one module to another. Its subparts are Positional Mapping and Nomenclature Based Mapping.
 
@@ -131,7 +135,7 @@ end
 
 `$display` vs `$monitor`: $dispay is used to display immediate value of variables. It gets executed in an active region. $monitor gets executed whenever the value of the given variable changes in it. It gets executed in the postponed region. Monitor is required only once to be written.
 
-# mux
+## mux
 
 ```verilog
 always @ (sel or din_0 or din_1)
@@ -149,7 +153,7 @@ always @ (sel or din_0 or din_1)
 
 ![mux](scribble-pad/mux.png)
 
-# encoder and decoders
+## encoder and decoders
 
 ![encoder](scribble-pad/encoder.png)
 
