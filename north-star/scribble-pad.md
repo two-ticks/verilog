@@ -70,14 +70,15 @@ gtkwave d-flipflop.vcd
 
 ```verilog
 reg out;
-always @(a or b or sel)
+always @(a or b or sel) //always @(a,b,sel) // always @(*)
 if (sel)
 out = a;
 else
 out = b;
 ```
 
-**The  `always` keyword forms a never-ending loop. When the `@()` operator is added, one iteration of the loop happens whenever the named values change.**
+**The  `always` keyword forms a never-ending loop. When the `@()` operator is added, one iteration of the loop happens whenever the named values change.** 
+All always block run simultaneousely at t=0 (but also depends on simulator)
 
 ## assign
 
@@ -160,3 +161,18 @@ always @ (sel or din_0 or din_1)
 An encoder is a combinational circuit that converts binary information in the form of a $2^N$ input lines into N output lines, which represent N bit code for the input. For simple encoders, it is assumed that only one input line is active at a time.
 
 A `priority encoder` is an encoder circuit in which inputs are given priorities. When more than one inputs are active at the same time, the input with higher priority takes precedence and the output corresponding to that is generated.
+
+## Latch vs Flip-flop
+
+- Latches are level triggered but flops are edge triggered
+- Latches are asynchronous whereas flops are used to design synchronize
+circuits and registers so that the data doesn't change unnecessarily.
+- Latches doesn't depend on clock but flops depends.
+- Latches are faster than flops but sensitive to glitches.
+- Both can store 1 bit of information
+- The output of latches are constantly affected by their inputs as long as
+enable signal is asserted means when they are enabled, their content
+changes immediately when their input changes.
+In case of flops their content changes at the rising or falling edge of clock
+or enable signal. After rising or falling edge of clock the flip flop content
+remains constant even if the input changes.
