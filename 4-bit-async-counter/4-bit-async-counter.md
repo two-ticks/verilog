@@ -1,3 +1,5 @@
+#NOT READY - UNDER DOCUMENTATION PHASE
+
 [link to circuit](https://circuitverse.org/simulator/embed/4-bit-asynchronous-counter-bb0bb235-49c8-49aa-a855-6e4f9c13e593)
 
 <img src="main.gif" width="450">
