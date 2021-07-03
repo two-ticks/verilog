@@ -1,63 +1,55 @@
-module tb;
+`timescale 1ns / 1ps
 
-    // Inputs
+module dual_port_ram_tb();
+    parameter ADDR_WIDTH = 6;
+    parameter DATA_WIDTH = 32;
+    parameter DEPTH = 16;
+
+    wire [DATA_WIDTH-1:0] data_a,data_b;
+    reg [DATA_WIDTH-1:0] tb_data_a,tb_data_b;
+
+    reg [ADDR_WIDTH-1:0] addr_a,addr_b;
+    reg we_a,we_b;
+    reg oe_a,oe_b;
+    reg cs_a,cs_b;
     reg clk;
-    reg wr_en;
-    reg [7:0] data_in;
-    reg [3:0] addr_in_0;
-    reg [3:0] addr_in_1;
-    reg port_en_0;
-    reg port_en_1;
+    wire [DATA_WIDTH-1:0] data_a_out,data_b_out;
 
-    // Outputs
-    wire [7:0] data_out_0;
-    wire [7:0] data_out_1;
-
-    integer i;
-
-    // Instantiate the Unit Under Test (UUT)
-    dual_port_ram uut (
+    dual_port_ram #(.DATA_WIDTH(DATA_WIDTH),.ADDR_WIDTH(ADDR_WIDTH)) dual_port_ram(
+        .data_a(data_a),
+        .data_b(data_b),
+        .cs_a(cs_a),
+        .cs_b(cs_b),
+        .oe_a(oe_a),
+        .oe_b(oe_b),
+        .addr_a(addr_a),
+        .addr_b(addr_b),
+        .we_a(we_a),
+        .we_b(we_b),
         .clk(clk),
-        .wr_en(wr_en),
-        .data_in(data_in),
-        .addr_in_0(addr_in_0),
-        .addr_in_1(addr_in_1),
-        .port_en_0(port_en_0),
-        .port_en_1(port_en_1),
-        .data_out_0(data_out_0),
-        .data_out_1(data_out_1)
+        .data_a_out(data_a_out),.data_b_out(data_b_out)
     );
+    //create the clock 
+    always #10 clk = ~clk;
+    assign data_a = !oe_a ? tb_data_a : 'hz;
+    assign data_b = !oe_b ? tb_data_b : 'hz;
 
-    always
-    #5 clk = ~clk;
 
     initial begin
-        // Initialize Inputs
-        clk = 1;
-        addr_in_1 = 0;
-        port_en_0 = 0;
-        port_en_1 = 0;
-        wr_en = 0;
-        data_in = 0;
-        addr_in_0 = 0;
-        #20;
-        //Write all the locations of RAM
-        port_en_0 = 1;
-        wr_en = 1;
-        for(i=1; i <= 16; i = i + 1) begin
-            data_in = i;
-            addr_in_0 = i-1;
-            #10;
+        {clk, tb_data_a, tb_data_b, we_a, we_b, addr_a, addr_b, oe_a, oe_b} = 0;
+        //repeat (2) @ (posedge clk);
+
+        for (integer i = 0; i < 2**ADDR_WIDTH; i= i+1) begin
+            //repeat (1) @(posedge clk) 
+            addr_a = i; we_a = 1; cs_a = 1; oe_a = 0; tb_data_a  = $random;
+            # 5;
         end
-        wr_en = 0;
-        port_en_0 = 0;
-        //Read from port 1, all the locations of RAM.
-        port_en_1 = 1;
-        for(i=1; i <= 16; i = i + 1) begin
-            addr_in_1 = i-1;
-            #10;
+        for (integer i = 0; i < 2**ADDR_WIDTH; i= i+1) begin
+            //repeat (1) @(posedge clk) 
+            addr_a = i; we_a = 0; cs_a=1; oe_a=1;
+            #5;
         end
-        port_en_1 = 0;
+        #20 $finish;
     end
 
 endmodule

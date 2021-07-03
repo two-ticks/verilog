@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Fri Jul  2 19:36:44 2021
+# Process ID: 24292
+# Current directory: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.runs/impl_1
+# Command line: vivado.exe -log dual_port_ram.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source dual_port_ram.tcl -notrace
+# Log file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.runs/impl_1/dual_port_ram.vdi
+# Journal file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source dual_port_ram.tcl -notrace

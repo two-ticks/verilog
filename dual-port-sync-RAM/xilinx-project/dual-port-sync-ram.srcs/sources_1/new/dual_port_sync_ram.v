@@ -1,48 +1,67 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 26.06.2021 23:00:49
-// Design Name: 
-// Module Name: dual_port_ram
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-module dual_port_ram 
-    (   input clk, //clock
-    input wr_en, //write enable for port 0
-    input [7:0] data_in, //Input data to port 0.
-    input [3:0] addr_in_0, //address for port 0
-    input [3:0] addr_in_1, //address for port 1
-    input port_en_0, //enable port 0.
-    input port_en_1, //enable port 1.
-    output [7:0] data_out_0, //output data from port 0.
-    output [7:0] data_out_1 //output data from port 1.
+module dual_port_ram # (
+    parameter ADDR_WIDTH = 6,
+    parameter DATA_WIDTH = 32,
+    parameter DEPTH = 1 << ADDR_WIDTH)(
+    //it has two set of address and data bus,
+    input clk,
+    inout [DATA_WIDTH-1:0] data_a,data_b, //data bus and bus b;
+    input [ADDR_WIDTH-1:0] addr_a,addr_b, //address bus a and bus b;
+    input we_a,we_b, //Separated write and read signal;
+    input oe_a ,oe_b,
+    input cs_a, cs_b,
+
+    //reg[DATA_WIDTH-1:0] q_a,q_b, //two sets of output data bus ;
+    output reg [DATA_WIDTH-1:0] data_a_out,data_b_out
 );
+    //define the ram 
+    reg [DATA_WIDTH-1:0] ram [DEPTH-1:0]; //DATA_WIDTH*DEPTH bit;
 
-    //memory declaration.
-    reg [7:0] ram[0:15];
+    //Memory Write Block 
+    always @ (posedge clk)
+    begin : MEMORY_WRITE
+        if (cs_a && we_a) //high level is write;
+            begin
+                ram[addr_a] <= data_a;
+            end
+        else if (cs_b && we_b)
+        begin
+            ram[addr_b] <= data_b;
 
-    //writing to the RAM
-    always@(posedge clk)
-    begin
-        if(port_en_0 == 1 && wr_en == 1) //check enable signal and if write enable is ON
-            ram[addr_in_0] <= data_in;
+        end
     end
 
-    //always reading from the ram, irrespective of clock.
-    assign data_out_0 = port_en_0 ? ram[addr_in_0] : 'dZ;
-    assign data_out_1 = port_en_1 ? ram[addr_in_1] : 'dZ;
+    //Tri-State Buffer control 
+    assign data_a = (cs_a && oe_a && !we_a) ? data_a_out : 8'bz;
 
-endmodule 
+    //Memory Read Block 
+    always @ (posedge clk)
+    begin : MEMORY_READ_A
+        if (cs_a && !we_a && oe_a) //high level is write;
+            begin
+                data_a_out <= ram[addr_a]; //read data out;
+            end
+        else
+            begin
+                data_a_out <= 0; 
+            end
+    end
+    
+    
+//Second Port of RAM
+// Tri-State Buffer control 
+// output : When we_0 = 0, oe_0 = 1, cs_0 = 1
+assign data_b = (cs_b && oe_b && !we_b) ? data_b_out : 8'bz; 
+// Memory Read Block 1 
+// Read Operation : When we_1 = 0, oe_1 = 1, cs_1 = 1
+always @ (posedge clk)
+begin : MEMORY_READ_B
+  if (cs_b && !we_b && oe_b) begin
+    data_b_out <= ram[addr_b]; 
+  end else begin
+    data_b_out <= 0;
+  end
+end
+
+endmodule

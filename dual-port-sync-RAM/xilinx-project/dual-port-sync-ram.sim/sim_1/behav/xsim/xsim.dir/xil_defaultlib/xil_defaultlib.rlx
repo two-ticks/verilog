@@ -3,5 +3,5 @@
 Jun 10 2021
 20:04:57
 D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim/glbl.v,1623370582,verilog,,,,glbl,,,,,,,,
-D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram.v,1624728716,verilog,,D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram_tb.v,,dual_port_ram,,,,,,,,
-D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram_tb.v,1624728832,verilog,,,,tb,,,,,,,,
+D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram.v,1625234746,verilog,,D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram_tb.v,,dual_port_ram,,,,,,,,
+D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.srcs/sources_1/new/dual_port_sync_ram_tb.v,1625244934,verilog,,,,dual_port_ram_tb,,,,,,,,

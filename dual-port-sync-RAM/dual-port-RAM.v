@@ -1,4 +1,5 @@
-module dual_ram #(parameter RAM_WIDTH = 8 ,
+module dual_ram #(
+    parameter RAM_WIDTH = 8 ,
     parameter RAM_DEPTH = 256 ,
     parameter  ADDR_SIZE = 8)( clk, wr_enb, rd_enb, rst, data_in, data_out
 );

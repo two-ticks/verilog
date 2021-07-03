@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Fri Jul  2 16:46:05 2021
+# Process ID: 26612
+# Current directory: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim/xsim.dir/dual_port_ram_tab_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/dual-port-sync-ram.sim/sim_1/behav/xsim/xsim.dir/dual_port_ram_tab_behav/webtalk/xsim_webtalk.tcl -notrace
