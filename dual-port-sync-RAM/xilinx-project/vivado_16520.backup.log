@@ -2,10 +2,10 @@
 # Vivado v2021.1 (64-bit)
 # SW Build 3247384 on Thu Jun 10 19:36:33 MDT 2021
 # IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
-# Start of session at: Fri Jul  2 15:57:04 2021
-# Process ID: 19424
+# Start of session at: Sat Jul  3 16:12:59 2021
+# Process ID: 16520
 # Current directory: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent29284 D:\two-ticks\verilog\dual-port-sync-RAM\xilinx-project\dual-port-sync-ram.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent22828 D:\two-ticks\verilog\dual-port-sync-RAM\xilinx-project\dual-port-sync-ram.xpr
 # Log file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project/vivado.log
 # Journal file: D:/two-ticks/verilog/dual-port-sync-RAM/xilinx-project\vivado.jou
 #-----------------------------------------------------------
@@ -17,5 +17,7 @@ Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2021.1/data/ip'.
-open_project: Time (s): cpu = 00:00:36 ; elapsed = 00:00:14 . Memory (MB): peak = 1120.992 ; gain = 0.000
+open_project: Time (s): cpu = 00:00:32 ; elapsed = 00:00:18 . Memory (MB): peak = 1106.973 ; gain = 0.000
 update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jul  3 18:27:55 2021...

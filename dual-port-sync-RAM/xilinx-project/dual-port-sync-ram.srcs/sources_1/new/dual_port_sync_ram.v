@@ -32,8 +32,11 @@ module dual_port_ram # (
         end
     end
 
+    //First Port of RAM
+
     //Tri-State Buffer control 
     assign data_a = (cs_a && oe_a && !we_a) ? data_a_out : 8'bz;
+
 
     //Memory Read Block 
     always @ (posedge clk)
@@ -44,24 +47,24 @@ module dual_port_ram # (
             end
         else
             begin
-                data_a_out <= 0; 
+                data_a_out <= 0;
             end
     end
-    
-    
-//Second Port of RAM
-// Tri-State Buffer control 
-// output : When we_0 = 0, oe_0 = 1, cs_0 = 1
-assign data_b = (cs_b && oe_b && !we_b) ? data_b_out : 8'bz; 
-// Memory Read Block 1 
-// Read Operation : When we_1 = 0, oe_1 = 1, cs_1 = 1
-always @ (posedge clk)
-begin : MEMORY_READ_B
-  if (cs_b && !we_b && oe_b) begin
-    data_b_out <= ram[addr_b]; 
-  end else begin
-    data_b_out <= 0;
-  end
-end
+
+
+    //Second Port of RAM
+
+    // Tri-State Buffer control 
+    assign data_b = (cs_b && oe_b && !we_b) ? data_b_out : 8'bz;
+
+    // Memory Read Block 
+    always @ (posedge clk)
+    begin : MEMORY_READ_B
+        if (cs_b && !we_b && oe_b) begin
+            data_b_out <= ram[addr_b];
+        end else begin
+            data_b_out <= 0;
+        end
+    end
 
 endmodule

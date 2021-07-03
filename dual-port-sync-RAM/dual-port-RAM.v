@@ -1,4 +1,5 @@
-timescale 1ns / 1ps
+`timescale 1ns / 1ps
+
 module dual_port_ram # (
     parameter ADDR_WIDTH = 6,
     parameter DATA_WIDTH = 32,
@@ -10,12 +11,14 @@ module dual_port_ram # (
     input we_a,we_b, //Separated write and read signal;
     input oe_a ,oe_b,
     input cs_a, cs_b,
+
     //reg[DATA_WIDTH-1:0] q_a,q_b, //two sets of output data bus ;
     output reg [DATA_WIDTH-1:0] data_a_out,data_b_out
 );
-    //define the ram
+    //define the ram 
     reg [DATA_WIDTH-1:0] ram [DEPTH-1:0]; //DATA_WIDTH*DEPTH bit;
-    //Memory Write Block
+
+    //Memory Write Block 
     always @ (posedge clk)
     begin : MEMORY_WRITE
         if (cs_a && we_a) //high level is write;
@@ -25,11 +28,17 @@ module dual_port_ram # (
         else if (cs_b && we_b)
         begin
             ram[addr_b] <= data_b;
+
         end
     end
-    //Tri-State Buffer control
+
+    //First Port of RAM
+
+    //Tri-State Buffer control 
     assign data_a = (cs_a && oe_a && !we_a) ? data_a_out : 8'bz;
-    //Memory Read Block
+
+
+    //Memory Read Block 
     always @ (posedge clk)
     begin : MEMORY_READ_A
         if (cs_a && !we_a && oe_a) //high level is write;
@@ -41,54 +50,21 @@ module dual_port_ram # (
                 data_a_out <= 0;
             end
     end
-   
-   
-//Second Port of RAM
-// Tri-State Buffer control
-// output : When we_0 = 0, oe_0 = 1, cs_0 = 1
-assign data_b = (cs_b && oe_b && !we_b) ? data_b_out : 8'bz;
-// Memory Read Block 1
-// Read Operation : When we_1 = 0, oe_1 = 1, cs_1 = 1
-always @ (posedge clk)
-begin : MEMORY_READ_B
-  if (cs_b && !we_b && oe_b) begin
-    data_b_out <= ram[addr_b];
-  end else begin
-    data_b_out <= 0;
-  end
-end
-endmodule
 
 
-module dual_ram #(
-    parameter RAM_WIDTH = 8 ,
-    parameter RAM_DEPTH = 256 ,
-    parameter  ADDR_SIZE = 8)( clk, wr_enb, rd_enb, rst, data_in, data_out
-);
-    
+    //Second Port of RAM
 
-    input clk, wr_enb, rd_enb, rst;
-    input [RAM_WIDTH-1:0] data_in;
-    input [ADDR_SIZE-1:0] rd_addr, wr_addr;
-    output reg [RAM_WIDTH-1:0] data_out;
+    // Tri-State Buffer control 
+    assign data_b = (cs_b && oe_b && !we_b) ? data_b_out : 8'bz;
 
-    reg [RAM_WIDTH-1:0]mem[RAM_DEPTH-1:0];
-    integer i;
-    always @(posedge clk) 
-    begin
-           if (rst) begin
-               for (i=0 ;i<RAM_DEPTH ;i=i+1 ) begin
-                   mem[i]<=0;
-                   data_out <=0;
-               end
-           end
-           else 
-           begin
-               if(wr_enb)
-               mem[wr_addr] <= data_in;
-               if(rd_enb)
-               data_out <= mem[rd_addr];
-           end
+    // Memory Read Block 
+    always @ (posedge clk)
+    begin : MEMORY_READ_B
+        if (cs_b && !we_b && oe_b) begin
+            data_b_out <= ram[addr_b];
+        end else begin
+            data_b_out <= 0;
+        end
     end
 
 endmodule
