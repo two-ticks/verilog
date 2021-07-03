@@ -7,7 +7,7 @@ reg[7:0] memory_byte[0:1023];    //memory memory_byte with 1K 8-bit words(bytes)
 ```
 
 ```verilog
-wire [31:0] bus A,bus B,bus C;  //3 buses of 32 bit width
+wire [31:0] bus_A,bus_B,bus_C;  //3 buses of 32 bit width
 ```
 
 ```verilog
